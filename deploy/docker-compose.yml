@@ -18,6 +18,8 @@ services:
       options:
         max-size: "1g"
         max-file: "3"
+    networks:
+      - yc_ley
 
   frontend:
     hostname: ${PROJECT_FLAG}_${FRONTEND_SERVER_CONTAINER}
@@ -43,6 +45,8 @@ services:
       interval: 1s
       timeout: 1s
       retries: 15
+    networks:
+      - yc_ley
 #    links:
 #      # https://zhuanlan.zhihu.com/p/382779508
 #      - django:backend-django
@@ -81,6 +85,6 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.31.10.0/29
-          gateway: 172.31.10.1
+        - subnet: 172.31.10.8/29
+          gateway: 172.31.10.9
 
