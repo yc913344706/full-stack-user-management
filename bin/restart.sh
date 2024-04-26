@@ -16,7 +16,6 @@ source ${WORKSPACE}/lib/log.sh
 CURRENT_DIR="$(dirname $0)"
 ###################
 
-source ${WORKSPACE}/etc/basic
 source ${WORKSPACE}/lib/check.sh
 source ${WORKSPACE}/lib/read_env.sh
 

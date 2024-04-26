@@ -3,9 +3,9 @@ version: '3'
 services:
 
   django:
-    hostname: ${PROJECT_FLAG}_${BACKEND_DJANGO_CONTAINER}
+    hostname: ${COMPOSE_PROJECT_NAME}_${BACKEND_DJANGO_CONTAINER}
     image: ${BACKEND_DJANGO_IMAGE}
-    container_name: ${PROJECT_FLAG}_${BACKEND_DJANGO_CONTAINER}
+    container_name: ${COMPOSE_PROJECT_NAME}_${BACKEND_DJANGO_CONTAINER}
     command: bash -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
 #    command: bash -c "pip install -r requirements.txt && uwsgi --ini /usr/src/app/uwsgi.ini"
     working_dir: /usr/local/src/backend
@@ -22,9 +22,9 @@ services:
       - yc_ley
 
   frontend:
-    hostname: ${PROJECT_FLAG}_${FRONTEND_SERVER_CONTAINER}
+    hostname: ${COMPOSE_PROJECT_NAME}_${FRONTEND_SERVER_CONTAINER}
     image: ${FRONTEND_SERVER_IMAGE}
-    container_name: ${PROJECT_FLAG}_${FRONTEND_SERVER_CONTAINER}
+    container_name: ${COMPOSE_PROJECT_NAME}_${FRONTEND_SERVER_CONTAINER}
     command: nginx -g 'daemon off;'
 #    command: nginx-debug -g 'daemon off;'
     restart: always
@@ -52,9 +52,9 @@ services:
 #      - django:backend-django
 
   frontend_compile:
-    hostname: ${PROJECT_FLAG}_${FRONTEND_BUILD_NAME}
+    hostname: ${COMPOSE_PROJECT_NAME}_${FRONTEND_BUILD_NAME}
     image: ${FRONTEND_BUILD_IMAGE}
-    container_name: ${PROJECT_FLAG}_${FRONTEND_BUILD_NAME}
+    container_name: ${COMPOSE_PROJECT_NAME}_${FRONTEND_BUILD_NAME}
     restart: always
     command: /usr/local/sbin/compile_frontend /usr/local/src/frontend
     environment:
