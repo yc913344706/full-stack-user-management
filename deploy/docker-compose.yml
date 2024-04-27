@@ -18,6 +18,13 @@ services:
       options:
         max-size: "1g"
         max-file: "3"
+    environment:
+      - TZ=Asia/Shanghai
+      # http://www.qb5200.com/article/492670.html
+      # assert不生效
+      - PYTHONOPTIMIZE=0
+      - CURRENT_ENV=production
+
     networks:
       - yc_ley
 
