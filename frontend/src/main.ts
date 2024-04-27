@@ -10,7 +10,10 @@ setupRouter(app);
 // element plus
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
-app.use(ElementPlus);
+import { zhCn } from 'element-plus/es/locale/index.mjs';
+app.use(ElementPlus, {
+    locale: zhCn,
+});
 // element plus icon
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

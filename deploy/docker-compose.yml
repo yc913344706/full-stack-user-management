@@ -6,7 +6,7 @@ services:
     hostname: ${COMPOSE_PROJECT_NAME}_${BACKEND_DJANGO_CONTAINER}
     image: ${BACKEND_DJANGO_IMAGE}
     container_name: ${COMPOSE_PROJECT_NAME}_${BACKEND_DJANGO_CONTAINER}
-    command: bash -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "pip install -r requirements.txt  && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 #    command: bash -c "pip install -r requirements.txt && uwsgi --ini /usr/src/app/uwsgi.ini"
     working_dir: /usr/local/src/backend
     ports:
