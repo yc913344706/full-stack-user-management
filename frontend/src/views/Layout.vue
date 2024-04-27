@@ -158,6 +158,12 @@ import MenuList from './menu/MenuList.vue';
 <style lang="scss">
 .my-app {
     height: 100vh;
+    min-width: 1024px;
+    min-height: 768px;
+    max-width: 2560px;
+    // max-height: 1440px;
+    overflow: auto;
+
     background-color: v-bind(_elContainerBgColor);
     .el-aside {
         background-color: v-bind(_leftMenuBgColor);
